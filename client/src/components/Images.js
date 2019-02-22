@@ -28,7 +28,7 @@ export default class Images extends Component {
     // gets new images and sets state
     axios.get(`/api/photos?count=${count}&start=${start}`).then(res =>
       this.setState({
-        images: res.data
+        images: this.state.images.concat(res.data)
       })
     );
   };
