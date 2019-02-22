@@ -20,4 +20,47 @@
   margin: 1% 2px;
   flex-grow: 1;
   vertical-align: middle;
+  cursor: zoom-in;
+}
+
+.image-modal {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* display: none; */
+  transition: 500ms;
+  opacity: 0;
+  z-index: 2;
+}
+.image-modal img {
+  width: 80%;
+  max-width: 1400px;
+  height: 80vh;
+  object-fit: cover;
+  /* display: none; */
+  transition: 500ms;
+  /* opacity: 0; */
+  z-index: 2;
+  cursor: zoom-out;
+}
+
+.modal-active {
+  opacity: 1;
+  animation: fadeIn 500ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
