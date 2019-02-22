@@ -13,6 +13,12 @@ class App extends Component {
                 <h1 className="title is-1">
                   Unsplash Images API Infinite Scroll
                 </h1>
+                <a
+                  href="https://github.com/Riley-Brown/react-infinite-scroll"
+                  target="_blank"
+                >
+                  <h2>View code here</h2>
+                </a>
               </div>
               <Images />
             </div>
