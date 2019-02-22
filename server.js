@@ -8,16 +8,17 @@ const unsplash = new Unsplash({
   applicationId: config.get('APPLICATION_ID'),
   secret: config.get('SECRET'),
   callback_url: config.get('CALLBACK_URL')
-})
+});
 
 const app = express();
 
 app.get('/api/photos', (req, res) => {
-  unsplash.photos.listPhotos(1, 30)
+  unsplash.photos
+    .listPhotos(req.query.start, req.query.count)
     .then(toJson)
     .then(json => res.json(json))
-    .then(console.log(config.get('SECRET'), config.get('APPLICATION_ID')))
-})
+    .then(console.log(config.get('SECRET'), config.get('APPLICATION_ID')));
+});
 
 const PORT = process.env.PORT || 5000;
 
