@@ -5,6 +5,15 @@
   margin-top: 50px;
   text-align: center;
 }
+.header a h2 {
+  font-size: 1.3rem;
+  color: #fff;
+  opacity: 0.7;
+  transition: 200ms;
+}
+.header a h2:hover {
+  opacity: 1;
+}
 
 /* Optional style for fetched images */
 .images {
