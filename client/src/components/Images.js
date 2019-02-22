@@ -19,7 +19,19 @@ export default class Images extends Component {
       })
     );
   }
+  fetchImages = () => {
+    const { count, start } = this.state;
 
+    // increases start to get new images
+    this.setState({ start: this.state.start + count });
+
+    // gets new images and sets state
+    axios.get(`/api/photos?count=${count}&start=${start}`).then(res =>
+      this.setState({
+        images: res.data
+      })
+    );
+  };
   render() {
     console.log(this.state);
     return (
