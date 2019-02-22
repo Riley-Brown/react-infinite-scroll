@@ -7,7 +7,9 @@ export default class Images extends Component {
   state = {
     images: [],
     count: 30,
-    start: 1
+    start: 1,
+    modalOpen: false,
+    modalSrc: ''
   };
   componentDidMount() {
     const { count, start } = this.state;
@@ -32,21 +34,53 @@ export default class Images extends Component {
       })
     );
   };
+
+  // event for image click
+  imageClick = e => {
+    console.log(e.target.src, 123);
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+      modalSrc: e.target.src
+    });
+
+    // e.classList.toggle('modal-active');
+    // document.querySelector('.image-modal').style.opacity = '1';
+    // document.querySelector('.image-modal img').style.opacity = '1';
+  };
   render() {
     console.log(this.state);
     return (
-      <div className="images">
-        <InfiniteScroll
-          dataLength={this.state.images.length}
-          next={this.fetchImages}
-          hasMore={true}
-          loader={<h4>Loading...</h4>}
-        >
-          {this.state.images.map(image => (
-            <Image key={image.id} image={image} />
-          ))}
-        </InfiniteScroll>
-      </div>
+      <React.Fragment>
+        <div className="images">
+          <InfiniteScroll
+            dataLength={this.state.images.length}
+            next={this.fetchImages}
+            hasMore={true}
+            loader={<h4>Loading...</h4>}
+          >
+            {this.state.images.map(image => (
+              <Image
+                key={image.id}
+                image={image}
+                imageClick={this.imageClick}
+              />
+            ))}
+          </InfiniteScroll>
+        </div>
+        {this.state.modalOpen ? (
+          <div
+            className={
+              this.state.modalOpen ? 'image-modal modal-active' : 'image-modal'
+            }
+          >
+            <img
+              src={this.state.modalSrc}
+              onClick={this.imageClick}
+              alt="Modal"
+            />
+          </div>
+        ) : null}
+      </React.Fragment>
     );
   }
 }
