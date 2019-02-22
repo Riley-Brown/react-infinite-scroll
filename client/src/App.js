@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Images from './components/Images';
 
 class App extends Component {
   render() {
@@ -18,7 +19,7 @@ class App extends Component {
                 src="https://res.cloudinary.com/chuloo/image/upload/v1550093026/scotch-logo-gif_jq4tgr.gif"
                 alt="loading"
               />
-              <div className="images" />
+              <Images />
             </div>
           </div>
         </div>
