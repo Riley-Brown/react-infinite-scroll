@@ -5,7 +5,7 @@ const toJson = require('unsplash-js').toJson;
 const express = require('express');
 
 const unsplash = new Unsplash({
-  applicationID: config.get('APPLICATION_ID'),
+  applicationId: config.get('APPLICATION_ID'),
   secret: config.get('SECRET'),
   callback_url: config.get('CALLBACK_URL')
 })
@@ -16,6 +16,7 @@ app.get('/api/photos', (req, res) => {
   unsplash.photos.listPhotos(1, 30)
     .then(toJson)
     .then(json => res.json(json))
+    .then(console.log(config.get('SECRET'), config.get('APPLICATION_ID')))
 })
 
 const PORT = process.env.PORT || 5000;
