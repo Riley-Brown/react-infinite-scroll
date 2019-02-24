@@ -10,9 +10,8 @@ class App extends Component {
           <div className="hero-body">
             <div className="container">
               <div className="header content">
-                <h1 className="title is-1">
-                  Unsplash Images API Infinite Scroll
-                </h1>
+                <h1 className="title is-1">React Infinite Scroll</h1>
+                <h6>Built using Node.js, React.js and Unsplash API</h6>
                 <a
                   href="https://github.com/Riley-Brown/react-infinite-scroll"
                   target="_blank"
