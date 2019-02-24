@@ -7,7 +7,7 @@ Built using Node, Express, React, and Unsplash image API.
 - Infinite scrolling using the `react-infinite-scroll-component` package
 - Fade in animations using the `react-reveal` package
 - Image modal popup for each image click
-- Backend Express api to handle api keys api requests from frontend
+- Backend Express api to handle Unsplash api keys and requests from frontend React app
 
 Deployed on Heroku here <https://react-infinite--scroll.herokuapp.com/>
 
