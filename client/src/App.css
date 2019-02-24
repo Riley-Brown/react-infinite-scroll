@@ -23,6 +23,7 @@
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .single-photo {
   max-width: 300px;
   align-self: auto;
@@ -30,6 +31,11 @@
   flex-grow: 1;
   vertical-align: middle;
   cursor: zoom-in;
+  transition: 300ms;
+}
+
+.single-photo:hover {
+  transform: scale(1.03);
 }
 
 .image-modal {
@@ -51,8 +57,11 @@
 .image-modal img {
   width: 80%;
   max-width: 1400px;
-  height: 80vh;
+  /* height: 80vh; */
+  max-height: 90vh;
+  height: auto;
   object-fit: cover;
+  object-position: 50% 30%;
   /* display: none; */
   transition: 500ms;
   /* opacity: 0; */
