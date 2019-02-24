@@ -1,6 +1,7 @@
 # Infinite Scroll React App
 
 Built using Node, Express, React, and Unsplash image API.
+
 Features fade in animations using the react-reveal package, and image modal for each image on click.
 
 Deployed on Heroku here <https://react-infinite--scroll.herokuapp.com/>
