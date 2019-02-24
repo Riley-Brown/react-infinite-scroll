@@ -19,7 +19,7 @@ export default class Images extends Component {
     // initial api call for images
     axios.get(`/api/photos?count=${count}&start=${start}`).then(res =>
       this.setState({
-        images: res.data
+        images: Array.from(res.data)
       })
     );
   }
