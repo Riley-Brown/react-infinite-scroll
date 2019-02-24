@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Image from './Image';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import Zoom from 'react-reveal/Zoom';
 
 export default class Images extends Component {
   state = {
     images: [],
-    count: 30,
+    count: 10,
     start: 1,
     modalOpen: false,
     modalSrc: ''
@@ -21,6 +23,7 @@ export default class Images extends Component {
       })
     );
   }
+
   fetchImages = () => {
     const { count, start } = this.state;
 
@@ -42,13 +45,10 @@ export default class Images extends Component {
       modalOpen: !this.state.modalOpen,
       modalSrc: e.target.src
     });
-
-    // e.classList.toggle('modal-active');
-    // document.querySelector('.image-modal').style.opacity = '1';
-    // document.querySelector('.image-modal img').style.opacity = '1';
   };
+
   render() {
-    console.log(this.state);
+    let randomNumber = Math.random();
     return (
       <React.Fragment>
         <div className="images">
@@ -58,13 +58,19 @@ export default class Images extends Component {
             hasMore={true}
             loader={<h4>Loading...</h4>}
           >
-            {this.state.images.map(image => (
-              <Image
-                key={image.id}
-                image={image}
-                imageClick={this.imageClick}
-              />
-            ))}
+            <TransitionGroup>
+              {this.state.images.map((image, index) => (
+                <Zoom key={index}>
+                  <span>
+                    <Image
+                      key={index}
+                      image={image}
+                      imageClick={this.imageClick}
+                    />
+                  </span>
+                </Zoom>
+              ))}
+            </TransitionGroup>
           </InfiniteScroll>
         </div>
         {this.state.modalOpen ? (
