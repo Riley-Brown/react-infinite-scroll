@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default function Image({ image, imageClick }) {
+export default function Image(props) {
   return (
     <img
       className="single-photo"
-      src={image.urls.regular}
+      src={props.image.urls.regular}
       alt=""
-      onClick={imageClick}
+      onClick={props.imageClick}
     />
   );
 }
