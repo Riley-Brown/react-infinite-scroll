@@ -58,19 +58,9 @@ export default class Images extends Component {
             hasMore={true}
             loader={<h4>Loading...</h4>}
           >
-            <TransitionGroup>
-              {this.state.images.map((image, index) => (
-                <Zoom key={index}>
-                  <span>
-                    <Image
-                      key={index}
-                      image={image}
-                      imageClick={this.imageClick}
-                    />
-                  </span>
-                </Zoom>
-              ))}
-            </TransitionGroup>
+            {this.state.images.map((image, index) => (
+              <Image key={index} image={image} imageClick={this.imageClick} />
+            ))}
           </InfiniteScroll>
         </div>
         {this.state.modalOpen ? (
